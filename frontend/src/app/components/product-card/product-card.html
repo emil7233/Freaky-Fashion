@@ -1,0 +1,6 @@
+<a [routerLink]="['/products', product.slug]" class="product-card">
+  <img [src]="product.image" [alt]="product.name" />
+  <p class="brand">{{ product.brand }}</p>
+  <h3>{{ product.name }}</h3>
+  <p class="price">{{ product.price }} SEK</p>
+</a>
