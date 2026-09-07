@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import db from "./db";
+import { slugify } from "./utils";
 
 const app = express();
 const PORT = 3000;
@@ -9,12 +10,83 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Freaky Fashion API is running!");
+  res.send("Freaky Fashion API is running");
 });
 
+//Hämta alla produkter med valfri sökning
 app.get("/api/products", (req, res) => {
-  const products = db.prepare("SELECT * FROM products").all();
-  res.json(products);
+  const q = req.query.q as string | undefined;
+
+  if (q) {
+    const products = db
+      .prepare("SELECT * FROM products WHERE name LIKE ?")
+      .all(`%${q}%`);
+    res.json(products);
+  } else {
+    const products = db.prepare("SELECT * FROM products").all();
+    res.json(products);
+  }
+});
+
+//Hämta en produkt via slug
+app.get("/api/products/:slug", (req, res) => {
+  const product = db
+    .prepare("SELECT * FROM products WHERE slug = ?")
+    .get(req.params.slug);
+
+  if (!product) {
+    res.status(404).json({ error: "Produkten kunde inte hittas" });
+    return;
+  }
+
+  res.json(product);
+});
+
+app.get("/api/products/:slug/related", (req, res) => {
+  const related = db
+    .prepare("SELECT * FROM products WHERE slug != ? LIMIT 3")
+    .all(req.params.slug);
+
+  res.json(related);
+});
+
+app.post("/api/products", (req, res) => {
+  const { name, description, sku, brand, image, price } = req.body;
+
+  if (!name || !price) {
+    res.status(400).json({ error: "Namn och pris krävs" });
+    return;
+  }
+
+  const slug = slugify(name);
+
+  try {
+    const insert = db.prepare(`
+      INSERT INTO products (name, slug, description, price, sku, brand, image)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `);
+    const result = insert.run(
+      name,
+      slug,
+      description ?? null,
+      price,
+      sku ?? null,
+      brand ?? null,
+      image ?? null,
+    );
+
+    const newProduct = db
+      .prepare("SELECT * FROM products WHERE id = ?")
+      .get(result.lastInsertRowid);
+
+    res.status(201).json(newProduct);
+  } catch (err) {
+    res
+      .status(400)
+      .json({
+        error: "Kunde inte skapa produkten. Kanske finns namnet redan?",
+      });
+  }
 });
 
 app.listen(PORT, () => {
