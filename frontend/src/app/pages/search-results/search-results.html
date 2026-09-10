@@ -1,1 +1,8 @@
-<p>search-results works!</p>
+<h1>Sökresultat</h1>
+<p>Hittade {{ products().length }} produkter</p>
+
+<div class="product-grid">
+  @for (product of products(); track product.id) {
+    <app-product-card [product]="product" />
+  }
+</div>

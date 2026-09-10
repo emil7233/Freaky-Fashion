@@ -1,1 +1,17 @@
-<p>header works!</p>
+<header class="site-header">
+  <a routerLink="/" class="logo">Freaky Fashion</a>
+
+  <form (submit)="onSearch(searchInput.value); $event.preventDefault()">
+    <input #searchInput type="text" placeholder="Sök produkt" />
+    <button type="submit">Sök</button>
+  </form>
+
+  <nav class="main-nav">
+    <a href="#">Nyheter</a>
+    <a href="#">Topplistan</a>
+    <a href="#">Rea</a>
+    <a href="#">Kampanjer</a>
+  </nav>
+</header>
+
+<!-- preventDefault() hindrar sidan från att laddas om vid submit -->
