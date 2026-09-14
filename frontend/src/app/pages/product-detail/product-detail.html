@@ -1,4 +1,5 @@
 @if (product(); as p) {
+  <!-- visas bara om product() innehåller en produkt och inte är null. as p = genväg, slipper skriva product varje gång-->
   <div class="product-detail">
     <img [src]="p.image" [alt]="p.name" />
 
