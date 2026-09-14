@@ -1,1 +1,22 @@
-<p>product-detail works!</p>
+@if (product(); as p) {
+  <div class="product-detail">
+    <img [src]="p.image" [alt]="p.name" />
+
+    <div class="product-info">
+      <h1>{{ p.name }}</h1>
+      <p class="brand">{{ p.brand }}</p>
+      <p class="description">{{ p.description }}</p>
+      <p class="price">{{ p.price }} SEK</p>
+      <button type="button">Lägg i varukorg</button>
+    </div>
+  </div>
+
+  <section class="related-products">
+    <h2>Liknande produkter</h2>
+    <div class="product-grid">
+      @for (relatedProduct of relatedProducts(); track relatedProduct.id) {
+        <app-product-card [product]="relatedProduct" />
+      }
+    </div>
+  </section>
+}
