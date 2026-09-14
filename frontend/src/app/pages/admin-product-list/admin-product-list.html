@@ -1,1 +1,22 @@
-<p>admin-product-list works!</p>
+<h2>Produkter</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>SKU</th>
+      <th>Pris</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (product of products(); track product.id) {
+      <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.sku }}</td>
+        <td>{{ product.price }}</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<a routerLink="/admin/products/new">Ny produkt</a>
