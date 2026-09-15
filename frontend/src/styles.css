@@ -1,1 +1,185 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* ===== Design tokens ===== */
+:root {
+  --ink: #16151a;
+  --paper: #f2f0ea;
+  --flash: #ff3e7f;
+  --volt: #d4ff3d;
+  --line: #16151a;
+
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --border-width: 2px;
+  --max-width: 1280px;
+  --gutter: 1.5rem;
+}
+
+/* ===== Reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ===== Typography ===== */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+/* ===== Layout helpers ===== */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ===== Buttons ===== */
+button,
+.btn {
+  display: inline-block;
+  background-color: var(--ink);
+  color: var(--paper);
+  border: var(--border-width) solid var(--ink);
+  padding: 0.75em 1.5em;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+button:hover,
+.btn:hover {
+  background-color: var(--flash);
+  border-color: var(--flash);
+  color: var(--ink);
+}
+
+/* ===== Form fields ===== */
+input[type='text'],
+input[type='number'],
+input[type='email'],
+input[type='date'] {
+  border: var(--border-width) solid var(--ink);
+  background-color: var(--paper);
+  padding: 0.6em 0.8em;
+  width: 100%;
+}
+
+input:focus {
+  outline: 2px solid var(--flash);
+  outline-offset: 2px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+/* ===== Product grid (delad mellan Home, SearchResults, ProductDetail) ===== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem var(--gutter);
+}
+
+/* ===== Admin-sidor (delad mellan lista och nytt-formulär) ===== */
+.admin-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem var(--gutter);
+}
+
+.admin-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.admin-page form button {
+  align-self: flex-start;
+}
+
+.back-link {
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  color: var(--flash);
+}
+
+.form-panel {
+  border: var(--border-width) solid var(--ink);
+  padding: 2rem;
+  max-width: 540px;
+}

@@ -1,33 +1,40 @@
-<form (submit)="onSubmit(); $event.preventDefault()">
-  <label>
-    Namn
-    <input type="text" [(ngModel)]="newProduct.name" name="name" required />
-  </label>
+<div class="admin-page">
+  <a routerLink="/admin/products" class="back-link">← Tillbaka till produkter</a>
+  <h2>Ny produkt</h2>
 
-  <label>
-    Beskrivning
-    <input type="text" [(ngModel)]="newProduct.description" name="description" required />
-  </label>
+  <div class="form-panel">
+    <form (submit)="onSubmit(); $event.preventDefault()">
+      <label>
+        Namn
+        <input type="text" [(ngModel)]="newProduct.name" name="name" required />
+      </label>
 
-  <label>
-    SKU
-    <input type="text" [(ngModel)]="newProduct.sku" name="sku" required />
-  </label>
+      <label>
+        Beskrivning
+        <input type="text" [(ngModel)]="newProduct.description" name="description" required />
+      </label>
 
-  <label>
-    Märke
-    <input type="text" [(ngModel)]="newProduct.brand" name="brand" required />
-  </label>
+      <label>
+        SKU
+        <input type="text" [(ngModel)]="newProduct.sku" name="sku" required />
+      </label>
 
-  <label>
-    Bild
-    <input type="text" [(ngModel)]="newProduct.image" name="image" required />
-  </label>
+      <label>
+        Märke
+        <input type="text" [(ngModel)]="newProduct.brand" name="brand" required />
+      </label>
 
-  <label>
-    Pris
-    <input type="number" [(ngModel)]="newProduct.price" name="price" required />
-  </label>
+      <label>
+        Bild
+        <input type="text" [(ngModel)]="newProduct.image" name="image" required />
+      </label>
 
-  <button type="submit">Lägg till</button>
-</form>
+      <label>
+        Pris
+        <input type="number" [(ngModel)]="newProduct.price" name="price" required />
+      </label>
+
+      <button type="submit">Lägg till</button>
+    </form>
+  </div>
+</div>
