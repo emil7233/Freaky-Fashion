@@ -44,7 +44,7 @@ app.get("/api/products/:slug", (req, res) => {
 
 app.get("/api/products/:slug/related", (req, res) => {
   const related = db
-    .prepare("SELECT * FROM products WHERE slug != ? LIMIT 3")
+    .prepare("SELECT * FROM products WHERE slug != ? LIMIT 5")
     .all(req.params.slug);
 
   res.json(related);
@@ -81,11 +81,9 @@ app.post("/api/products", (req, res) => {
 
     res.status(201).json(newProduct);
   } catch (err) {
-    res
-      .status(400)
-      .json({
-        error: "Kunde inte skapa produkten. Kanske finns namnet redan?",
-      });
+    res.status(400).json({
+      error: "Kunde inte skapa produkten. Kanske finns namnet redan?",
+    });
   }
 });
 

@@ -34,7 +34,7 @@ if (count.count === 0) {
     199,
     "SVA123",
     "Levis",
-    "https://via.placeholder.com/300",
+    "https://placehold.co/600x600/16151a/f2f0ea?text=Svart+T-Shirt",
   );
 
   insert.run(
@@ -44,7 +44,7 @@ if (count.count === 0) {
     199,
     "VIT123",
     "Levis",
-    "https://via.placeholder.com/300",
+    "https://placehold.co/600x600/f2f0ea/16151a?text=Vit+T-Shirt",
   );
 }
 
