@@ -2,15 +2,40 @@ import { Component, OnInit, signal } from '@angular/core';
 import { ProductCard } from '../../components/product-card/product-card';
 import { ProductService } from '../../services/product';
 import { Product } from '../../models/product';
+import { Spot as SpotModel } from '../../models/spot';
+import { Hero } from '../../components/hero/hero';
+import { Spot } from '../../components/spot/spot';
 
 @Component({
   selector: 'app-home',
-  imports: [ProductCard],
+  imports: [ProductCard, Hero, Spot],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home implements OnInit {
   products = signal<Product[]>([]);
+
+  heroTitle = 'Senaste nytt';
+  heroDescription = 'lorem ipsum blablabla';
+  heroImage = 'https://placehold.co/900x560/16151a/f2f0ea?text=Freaky+Fashion';
+
+  spots: SpotModel[] = [
+    {
+      image: 'https://placehold.co/600x400/16151a/f2f0ea?text=Vinterkollektionen',
+      text: 'Vinterkollektionen 2026',
+      link: '#',
+    },
+    {
+      image: 'https://placehold.co/600x400/ff3e7f/16151a?text=Rea',
+      text: 'Upp till 50% rea',
+      link: '#',
+    },
+    {
+      image: 'https://placehold.co/600x400/d4ff3d/16151a?text=Nyheter',
+      text: 'Nya släpp varje vecka',
+      link: '#',
+    },
+  ];
 
   constructor(private productService: ProductService) {}
 

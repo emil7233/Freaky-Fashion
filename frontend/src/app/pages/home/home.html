@@ -1,6 +1,16 @@
-<h1>Populära Produkter</h1>
-<div class="product-grid">
-  @for (product of products(); track product.id) {
-    <app-product-card [product]="product" />
+<app-hero [title]="heroTitle" [description]="heroDescription" [image]="heroImage" />
+
+<div class="spots-grid">
+  @for (spot of spots; track spot.text) {
+    <app-spot [spot]="spot" />
   }
 </div>
+
+<section class="popular-products">
+  <h2>Populära Produkter</h2>
+  <div class="product-grid">
+    @for (product of products(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+</section>

@@ -6,6 +6,7 @@
   padding: 1rem var(--gutter);
   border-bottom: var(--border-width) solid var(--ink);
   flex-wrap: wrap; /*Kommer att brytas till ny rad om skärmen är för smal*/
+  height: 8rem;
 }
 
 .logo {

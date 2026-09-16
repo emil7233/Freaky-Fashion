@@ -1,0 +1,29 @@
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 3rem var(--gutter);
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.hero-image {
+  flex: 1;
+  aspect-ratio: 16 / 10;
+  max-height: 60rem;
+  object-fit: cover;
+  border: var(--border-width) solid var(--ink);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+}
