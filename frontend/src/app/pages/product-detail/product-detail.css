@@ -36,6 +36,9 @@
   max-width: var(--max-width);
   margin: 0 auto;
 }
+.related-products .product-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
 
 @media (max-width: 640px) {
   .product-detail {
