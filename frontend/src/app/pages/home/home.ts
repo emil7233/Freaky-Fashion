@@ -15,8 +15,9 @@ import { Spot } from '../../components/spot/spot';
 export class Home implements OnInit {
   products = signal<Product[]>([]);
 
-  heroTitle = 'Senaste nytt';
-  heroDescription = 'lorem ipsum blablabla';
+  heroTitle = 'Lorem Ipsum dolor';
+  heroDescription =
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
   heroImage = 'https://placehold.co/900x560/16151a/f2f0ea?text=Freaky+Fashion';
 
   spots: SpotModel[] = [

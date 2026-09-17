@@ -19,10 +19,12 @@ export class SearchResults implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const searchTerm = this.route.snapshot.queryParams['q'];
+    this.route.queryParams.subscribe((params) => {
+      const searchTerm = params['q'];
 
-    this.productService.getAll(searchTerm).subscribe((data) => {
-      this.products.set(data);
+      this.productService.getAll(searchTerm).subscribe((data) => {
+        this.products.set(data);
+      });
     });
   }
 }

@@ -41,15 +41,23 @@
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  background: none;
-  border: none;
-  color: var(--paper);
-  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: var(--paper);
+  border: var(--border-width) solid var(--ink);
+  border-radius: 9999px;
+  color: var(--ink);
+  padding: 0;
   cursor: pointer;
 }
 
 .favorite-btn:hover {
-  color: var(--flash);
+  background-color: var(--flash);
+  border-color: var(--flash);
+  color: var(--ink);
 }
 
 .image-wrapper {
