@@ -1,0 +1,9 @@
+.search-results {
+  padding: 3rem var(--gutter) 0;
+  max-width: var(--max-width);
+  text-align: start;
+}
+
+.product-grid {
+  justify-content: center;
+}

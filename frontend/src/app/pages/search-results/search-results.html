@@ -1,8 +1,10 @@
-<h1>Sökresultat</h1>
-<p>Hittade {{ products().length }} produkter</p>
+<section class="search-results">
+  <h1>Sökresultat</h1>
+  <p>Hittade {{ products().length }} produkt(er)</p>
 
-<div class="product-grid">
-  @for (product of products(); track product.id) {
-    <app-product-card [product]="product" />
-  }
-</div>
+  <div class="product-grid">
+    @for (product of products(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+</section>

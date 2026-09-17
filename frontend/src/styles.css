@@ -167,15 +167,15 @@ label {
 /* ===== Admin-sidor (delad mellan lista och nytt-formulär) ===== */
 .admin-page {
   max-width: var(--max-width);
-  margin: 0 auto;
   padding: 2rem var(--gutter);
+  margin: 0 auto;
 }
 
 .admin-page form {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  margin-top: 1.5rem;
+  max-width: 500px;
 }
 
 .admin-page form button {
@@ -183,10 +183,17 @@ label {
 }
 
 .back-link {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  cursor: pointer;
+}
+
+.admin-page > h2,
+.admin-page > .back-link {
+  text-align: center;
 }
 
 .back-link:hover {
@@ -197,4 +204,5 @@ label {
   border: var(--border-width) solid var(--ink);
   padding: 2rem;
   max-width: 540px;
+  margin: 0 auto;
 }

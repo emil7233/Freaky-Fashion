@@ -20,14 +20,16 @@ export class ProductDetail implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const slug = this.route.snapshot.params['slug'];
+    this.route.params.subscribe((params) => {
+      const slug = params['slug'];
 
-    this.productService.getBySlug(slug).subscribe((data) => {
-      this.product.set(data);
-    });
+      this.productService.getBySlug(slug).subscribe((data) => {
+        this.product.set(data);
+      });
 
-    this.productService.getRelated(slug).subscribe((data) => {
-      this.relatedProducts.set(data);
+      this.productService.getRelated(slug).subscribe((data) => {
+        this.relatedProducts.set(data);
+      });
     });
   }
 }
