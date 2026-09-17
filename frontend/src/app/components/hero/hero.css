@@ -1,30 +1,31 @@
 .hero {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(280px, 500px) 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: 3rem;
   padding: 3rem var(--gutter);
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .hero-text {
-  flex: 1;
   max-width: 500px;
 }
 
 .hero-image {
-  flex: 0.7;
+  width: 100%;
   aspect-ratio: 16 / 10;
   max-height: 60rem;
   object-fit: cover;
   border: var(--border-width) solid var(--ink);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .hero-image {
-    width: 100%;
+    order: -1;
   }
 }

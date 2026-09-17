@@ -1,10 +1,14 @@
-<app-hero [title]="heroTitle" [description]="heroDescription" [image]="heroImage" />
+<section class="hero-section">
+  <app-hero [title]="heroTitle" [description]="heroDescription" [image]="heroImage" />
+</section>
 
-<div class="spots-grid">
-  @for (spot of spots; track spot.text) {
-    <app-spot [spot]="spot" />
-  }
-</div>
+<section class="spots-section">
+  <div class="spots-grid">
+    @for (spot of spots; track spot.text) {
+      <app-spot [spot]="spot" />
+    }
+  </div>
+</section>
 
 <section class="popular-products">
   <h2>Populära Produkter</h2>

@@ -158,6 +158,12 @@ label {
   padding: 2rem var(--gutter);
 }
 
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===== Admin-sidor (delad mellan lista och nytt-formulär) ===== */
 .admin-page {
   max-width: var(--max-width);

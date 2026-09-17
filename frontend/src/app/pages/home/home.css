@@ -1,10 +1,26 @@
 .spots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  padding: 0 var(--gutter) 3rem;
+  padding: 3rem var(--gutter);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  border-bottom: var(--border-width) solid var(--ink);
+}
+
+.spots-section {
+  border-bottom: var(--border-width) solid var(--ink);
 }
 
 .popular-products {
-  padding: 0 var(--gutter);
+  padding: 3rem var(--gutter) 0;
+}
+
+@media (min-width: 1024px) {
+  .spots-grid {
+    display: grid;
+  }
 }
