@@ -1,10 +1,24 @@
 <header class="site-header">
-  <a routerLink="/" class="logo">Freaky Fashion</a>
+  <div class="header-top">
+    <a routerLink="/" class="logo">Freaky Fashion</a>
 
-  <form (submit)="onSearch(searchInput.value); $event.preventDefault()">
-    <input #searchInput type="text" placeholder="Sök produkt" />
-    <button type="submit">Sök</button>
-  </form>
+    <!-- preventDefault() hindrar sidan från att laddas om vid submit -->
+    <form (submit)="onSearch(searchInput.value); $event.preventDefault()">
+      <input #searchInput type="text" placeholder="Sök produkt" />
+      <button type="submit" aria-label="Sök">
+        <span class="material-symbols-outlined">search</span>
+      </button>
+    </form>
+
+    <div class="header-icons">
+      <a href="#" aria-label="Favoriter" class="icon-link">
+        <span class="material-symbols-outlined">favorite</span>
+      </a>
+      <a href="#" aria-label="Varukorg" class="icon-link">
+        <span class="material-symbols-outlined">shopping_bag</span>
+      </a>
+    </div>
+  </div>
 
   <nav class="main-nav">
     <a href="#">Nyheter</a>
@@ -13,5 +27,3 @@
     <a href="#">Kampanjer</a>
   </nav>
 </header>
-
-<!-- preventDefault() hindrar sidan från att laddas om vid submit -->

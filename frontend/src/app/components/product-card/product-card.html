@@ -1,5 +1,15 @@
 <a [routerLink]="['/products', product.slug]" class="product-card">
-  <img [src]="product.image" [alt]="product.name" />
+  <div class="image-wrapper">
+    <img [src]="product.image" [alt]="product.name" />
+    <button
+      type="button"
+      class="favorite-btn"
+      aria-label="Lägg till i favoriter"
+      (click)="$event.preventDefault(); $event.stopPropagation()"
+    >
+      <span class="material-symbols-outlined">favorite</span>
+    </button>
+  </div>
   <p class="brand">{{ product.brand }}</p>
   <h3>{{ product.name }}</h3>
   <p class="price">{{ product.price }} SEK</p>

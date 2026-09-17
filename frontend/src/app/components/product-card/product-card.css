@@ -36,3 +36,22 @@
   color: var(--flash);
   margin: 0 1rem 1rem;
 }
+
+.favorite-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--paper);
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.favorite-btn:hover {
+  color: var(--flash);
+}
+
+.image-wrapper {
+  position: relative;
+}
