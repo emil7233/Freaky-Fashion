@@ -20,7 +20,7 @@ app.get("/api/products", (req, res) => {
   if (q) {
     const products = db
       .prepare("SELECT * FROM products WHERE name LIKE ?")
-      .all(`%${q}%`);
+      .all(`%${q}%`); //Alla produkter med liknande namn, %q% = där name innehåller'q' någonstans
     res.json(products);
   } else {
     const products = db.prepare("SELECT * FROM products").all();
@@ -32,7 +32,7 @@ app.get("/api/products", (req, res) => {
 app.get("/api/products/:slug", (req, res) => {
   const product = db
     .prepare("SELECT * FROM products WHERE slug = ?")
-    .get(req.params.slug);
+    .get(req.params.slug); //slug är en del av URL:ens sökväg (/api/products/:slug), därav params och inte query
 
   if (!product) {
     res.status(404).json({ error: "Produkten kunde inte hittas" });
@@ -42,14 +42,16 @@ app.get("/api/products/:slug", (req, res) => {
   res.json(product);
 });
 
+//Hämta relaterade produkter
 app.get("/api/products/:slug/related", (req, res) => {
   const related = db
-    .prepare("SELECT * FROM products WHERE slug != ? LIMIT 5")
-    .all(req.params.slug);
+    .prepare("SELECT * FROM products WHERE slug != ? LIMIT 5") //Hämta alla produtker WHERE slug INTE är lika med den vi skickar in
+    .all(req.params.slug); //.all eftersom vi slipper felhantering, om inga produkter finns returneras en tom array, o inte "undefined"
 
   res.json(related);
 });
 
+//Skapa en produkt
 app.post("/api/products", (req, res) => {
   const { name, description, sku, brand, image, price } = req.body;
 
@@ -58,9 +60,12 @@ app.post("/api/products", (req, res) => {
     return;
   }
 
-  const slug = slugify(name);
+  const slug = slugify(name); //Generar en URL vänlig slug från produktnamnet, function från utils.ts.
 
   try {
+    // ?? null säkerställer att valfria fält som saknas (undefined) sparas
+    // som explicit NULL i databasen, istället för att riskera ett fel
+
     const insert = db.prepare(`
       INSERT INTO products (name, slug, description, price, sku, brand, image)
       VALUES (?, ?, ?, ?, ?, ?, ?)
@@ -78,6 +83,7 @@ app.post("/api/products", (req, res) => {
     const newProduct = db
       .prepare("SELECT * FROM products WHERE id = ?")
       .get(result.lastInsertRowid);
+    //Hämtar den senaste skapade produkten
 
     res.status(201).json(newProduct);
   } catch (err) {
