@@ -1,8 +1,11 @@
 <section class="search-results">
   <h1>Sökresultat</h1>
+  <!-- products() anropas som funktion för att läsa signalens värde,
+       .length ger antalet träffar -->
   <p>Hittade {{ products().length }} produkt(er)</p>
 
   <div class="product-grid">
+    <!--Läser ut arrayen för att loopa över den-->
     @for (product of products(); track product.id) {
       <app-product-card [product]="product" />
     }

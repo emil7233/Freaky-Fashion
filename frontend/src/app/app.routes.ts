@@ -5,6 +5,8 @@ import { ProductDetail } from './pages/product-detail/product-detail';
 import { AdminProductList } from './pages/admin-product-list/admin-product-list';
 import { AdminProductNew } from './pages/admin-product-new/admin-product-new';
 
+// Definierar vilken komponent som visas för respektive URL-sökväg.
+// :slug är en route-parameter, läses via ActivatedRoute i ProductDetail
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'search', component: SearchResults },

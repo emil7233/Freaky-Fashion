@@ -8,8 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 
-/* @Injectable({
-  providedIn: 'root',
+/*providedIn: 'root',
   Detta betyder att det bara skapas en enda instans av servicen för hela appen, aka en singleton, som kan delas av alla komponenter som använder den*/
 
 @Injectable({

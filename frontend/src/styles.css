@@ -4,7 +4,6 @@
   --paper: #f2f0ea;
   --flash: #ff3e7f;
   --volt: #d4ff3d;
-  --line: #16151a;
 
   --font-display: 'Archivo Black', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -36,13 +35,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
 }
 
 body {
@@ -191,6 +183,7 @@ label {
   margin-bottom: 1.5rem;
 }
 
+/* > = direkt-barn-selektor. */
 .admin-page > h2,
 .admin-page > .back-link {
   text-align: center;

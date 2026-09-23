@@ -1,4 +1,5 @@
 .spot {
+  /*relative gör detta element till referenspunkt för barn med position: absolute */
   position: relative;
   display: block;
   aspect-ratio: 4 / 3;

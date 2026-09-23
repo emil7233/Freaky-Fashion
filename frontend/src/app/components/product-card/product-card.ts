@@ -9,5 +9,7 @@ import { Product } from '../../models/product';
   styleUrl: './product-card.css',
 })
 export class ProductCard {
+  // Obligatorisk input. Förälderkomponenten MÅSTE skicka in en produkt,
+  // t.ex. <app-product-card [product]="produkt" />
   @Input({ required: true }) product!: Product;
 }

@@ -2,7 +2,7 @@ import { Component, OnInit, signal } from '@angular/core';
 import { ProductCard } from '../../components/product-card/product-card';
 import { ProductService } from '../../services/product';
 import { Product } from '../../models/product';
-import { Spot as SpotModel } from '../../models/spot';
+import { Spot as SpotModel } from '../../models/spot'; //Kallar den för SpotModel för att undvika namnkrock med Spot-komponenten nedan
 import { Hero } from '../../components/hero/hero';
 import { Spot } from '../../components/spot/spot';
 
@@ -15,6 +15,8 @@ import { Spot } from '../../components/spot/spot';
 export class Home implements OnInit {
   products = signal<Product[]>([]);
 
+  //Hero/Spots: statisk, hårdkodad data. Ingen signal behövs
+  //Finns redan tillgänglig direkt, inget att vänta på (till skillnad från products)
   heroTitle = 'Lorem Ipsum dolor';
   heroDescription =
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -40,6 +42,7 @@ export class Home implements OnInit {
 
   constructor(private productService: ProductService) {}
 
+  //Produkter hämtas via HTTP asynkront, därför ngOnInit + subscribe
   ngOnInit(): void {
     this.productService.getAll().subscribe((data) => {
       this.products.set(data);

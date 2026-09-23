@@ -1,5 +1,5 @@
 .hero {
-  display: grid;
+  display: grid; /* Text 280-500px, bild tar resten (1fr). Grid vald för förutsägbara bredder */
   grid-template-columns: minmax(280px, 500px) 1fr;
   align-items: center;
   gap: 3rem;
@@ -22,7 +22,7 @@
 
 @media (max-width: 1024px) {
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* en kolumn, text och bild staplas */
   }
 
   .hero-image {

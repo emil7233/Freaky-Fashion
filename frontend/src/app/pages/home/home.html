@@ -1,9 +1,12 @@
 <section class="hero-section">
   <app-hero [title]="heroTitle" [description]="heroDescription" [image]="heroImage" />
+  <!--Property binding, värdet kommer från en komponents klass-->
 </section>
 
 <section class="spots-section">
   <div class="spots-grid">
+    <!-- track spot.text istället för .id, eftersom Spot-interfacet saknar id -->
+    <!--Sedan loopa igenom de olika spotsen-->
     @for (spot of spots; track spot.text) {
       <app-spot [spot]="spot" />
     }

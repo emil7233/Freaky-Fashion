@@ -11,6 +11,7 @@ import { Product } from '../../models/product';
   templateUrl: './search-results.html',
 })
 export class SearchResults implements OnInit {
+  // Signal: håller listan av sökresultat, tom array innan något sökts/hämtats
   products = signal<Product[]>([]);
 
   constructor(
@@ -18,6 +19,9 @@ export class SearchResults implements OnInit {
     private productService: ProductService,
   ) {}
 
+  // route.queryParams.subscribe triggar om varje gång
+  // söktermen ändras, t.ex. när man söker på nytt utan att lämna sidan.
+  // Med bara snapshot (engångsvärde) hade en ny sökning inte uppdaterat resultaten
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       const searchTerm = params['q'];

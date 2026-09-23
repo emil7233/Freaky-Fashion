@@ -10,6 +10,7 @@
       </tr>
     </thead>
     <tbody>
+      <!-- @for loopar över products()-arrayen, skapar en tabellrad per produkt -->
       @for (product of products(); track product.id) {
         <tr>
           <td>{{ product.name }}</td>

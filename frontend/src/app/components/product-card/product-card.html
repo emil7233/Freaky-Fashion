@@ -1,6 +1,13 @@
+<!-- routerLink med en array: ['/products', product.slug] bygger
+     dynamiskt URL:en /products/svart-t-shirt osv -->
 <a [routerLink]="['/products', product.slug]" class="product-card">
   <div class="image-wrapper">
     <img [src]="product.image" [alt]="product.name" />
+
+    <!--preventDefault(): hindrar länken (<a>) från att navigera.
+         stopPropagation(): hindrar klicket från att "bubbla upp" till
+         föräldra-länken. Utan denna hade ett klick på hjärtat ÄVEN
+         triggat navigering till detaljsidan -->
     <button
       type="button"
       class="favorite-btn"

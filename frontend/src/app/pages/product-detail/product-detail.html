@@ -15,6 +15,7 @@
   <section class="related-products">
     <h2>Liknande produkter</h2>
     <div class="product-grid">
+      <!--Loopar igenom relatedProducts() för att visa relaterade produkter-->
       @for (relatedProduct of relatedProducts(); track relatedProduct.id) {
         <app-product-card [product]="relatedProduct" />
       }

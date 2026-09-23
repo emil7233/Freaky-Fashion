@@ -8,7 +8,9 @@
         Namn
         <input type="text" [(ngModel)]="newProduct.name" name="name" required />
       </label>
-
+      <!-- [(ngModel)]: tvåvägsbindning. Ändrar användaren fältet uppdateras
+     newProduct.name automatiskt, och tvärtom om newProduct.name
+     ändras i koden -->
       <label>
         Beskrivning
         <input type="text" [(ngModel)]="newProduct.description" name="description" required />

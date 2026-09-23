@@ -1,6 +1,6 @@
 .spots-grid {
-  display: none;
-  grid-template-columns: repeat(3, 1fr);
+  display: none; /*dold som standard*/
+  grid-template-columns: repeat(3, 1fr); /* exakt 3 lika breda kolumner, skalbart*/
   gap: 1.5rem;
   padding: 3rem var(--gutter);
   max-width: 1600px;
@@ -21,6 +21,6 @@
 
 @media (min-width: 1024px) {
   .spots-grid {
-    display: grid;
+    display: grid; /* Spots visas, samma brytpunkt som Hero staplas om vid */
   }
 }
