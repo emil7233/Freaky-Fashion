@@ -1,6 +1,6 @@
 .site-footer {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /*låter kolumnerna brytas till ny rad på smala skärmar*/
   gap: 2rem;
   padding: 3rem var(--gutter);
   margin-top: 4rem;

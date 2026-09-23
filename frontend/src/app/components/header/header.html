@@ -4,6 +4,7 @@
 
     <!-- preventDefault() hindrar sidan från att laddas om vid submit -->
     <form (submit)="onSearch(searchInput.value); $event.preventDefault()">
+      <!-- #searchInput ger oss tillgång till fältets värde (searchInput.value) -->
       <input #searchInput type="text" placeholder="Sök produkt" />
       <button type="submit" aria-label="Sök">
         <span class="material-symbols-outlined">search</span>

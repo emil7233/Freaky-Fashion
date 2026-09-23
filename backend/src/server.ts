@@ -63,8 +63,8 @@ app.post("/api/products", (req, res) => {
   const slug = slugify(name); //Generar en URL vänlig slug från produktnamnet, function från utils.ts.
 
   try {
-    // ?? null säkerställer att valfria fält som saknas (undefined) sparas
-    // som explicit NULL i databasen, istället för att riskera ett fel
+    //?? null säkerställer att valfria fält som saknas (undefined) sparas
+    //som explicit NULL i databasen, istället för att riskera ett fel
 
     const insert = db.prepare(`
       INSERT INTO products (name, slug, description, price, sku, brand, image)

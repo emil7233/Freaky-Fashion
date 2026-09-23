@@ -1,6 +1,8 @@
 import { DatabaseSync } from "node:sqlite";
 import path from "path";
 
+/*DatabaseSync: inbyggt i Node 24, synkront API (ingen async/await behövs)
+eftersom SQLite är en lokal fil */
 const dbPath = path.join(__dirname, "..", "database.sqlite");
 const db = new DatabaseSync(dbPath);
 
@@ -51,6 +53,6 @@ if (count.count === 0) {
 export default db;
 
 /*
-slug = URL vänlig verisionen av namnet, exempelvis Svart Tshirt
+slug = URL vänlig versionen av namnet, exempelvis Svart Tshirt
 sku = Stock Keeping Unit
 */
