@@ -17,7 +17,7 @@ import { Product } from '../models/product';
 export class ProductService {
   private apiUrl = 'http://localhost:3000/api/products'; //apiURL så jag slipper skriva ut hela URL:en i varje metod
 
-  constructor(private http: HttpClient) {} //DI: Angular skickar in en delad HttpClient-instans automatiskt
+  constructor(private http: HttpClient) {} //DI: Angular skickar in en delad HttpClient-instans automatiskt. private sparar "leveransen" så vi kan använda den i hela klassen
 
   getAll(query?: string): Observable<Product[]> {
     //query?: string gör paramtern valfri

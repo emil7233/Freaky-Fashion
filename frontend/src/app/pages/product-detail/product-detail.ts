@@ -24,7 +24,7 @@ export class ProductDetail implements OnInit {
   //navigerar mellan produkter utan att komponenten skapas om
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      const slug = params['slug'];
+      const slug = params['slug']; //Läser Route Paramtern
 
       //Två separata anrop. getBySlug och getRelated är oberoende av
       //varandra, men båda måste ligga inuti params.subscribe eftersom
